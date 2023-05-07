@@ -1,0 +1,30 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+#quote-box{
+    position: absolute;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+#text{
+    width: 400px;
+    height: 400px;
+    border: 2px solid black;
+    border-bottom: none;
+}
+#author{
+    width: 400px;
+    text-align: right;
+    border: 2px solid black;
+    border-top:none;
+    margin-bottom: 15px;
+}
+#tweet{
+    width: 400px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
