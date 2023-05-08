@@ -2,7 +2,8 @@ import React from "react";
 import {connect} from "react-redux";
 import './styles.css'
 import {fetchData} from "./api";
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faQuoteLeft } from '@fortawesome/free-solid-svg-icons';
 
 const addLink = (hrefVal)=>{
     return {
@@ -21,8 +22,9 @@ class MyComponent extends React.Component{
 
 
     changeQuote(){
+        const opac  = document.getElementById('content');
+        opac.classList.toggle('show')
         this.props.fetcher()
-        // console.log(this.props);
     }
     tweetLink(){
         const currentQuote = this.props.content;
@@ -35,13 +37,14 @@ class MyComponent extends React.Component{
         return (
             <div id="quote-box">
                 <div id="text">
-                    <p>{content}</p>
-
-                </div>
-                <div id="author"><p>{author}</p></div>
+                    <p id="content">
+                    <FontAwesomeIcon icon={faQuoteLeft}/>    {content}</p>
+                <div id="author"><p>{author}</p>
                 <div id="tweet">
-                    <a href={link} id="tweet-quote" target="_blank"><button onClick={this.tweetLink}>Tweet</button> </a>
+                    <a rel="noreferrer" href={link} id="tweet-quote" target="_blank"><button id="new-tweet" onClick={this.tweetLink}>Tweet</button> </a>
                     <button id="new-quote" onClick={this.changeQuote}>New-quote</button>
+                </div>
+                </div>
                 </div>
             </div>
         )
